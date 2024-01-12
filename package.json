@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@bytescale/sdk": "^3.24.0"
+    "@bytescale/sdk": "^3.24.0",
+    "flatpickr": "^4.6.13"
   }
 }

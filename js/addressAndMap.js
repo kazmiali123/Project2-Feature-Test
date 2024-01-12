@@ -1,6 +1,6 @@
-var address = document.querySelector("#address");
-var results = document.querySelector("#results");
-var searchBtn = document.querySelector("#search-btn");
+const address = document.querySelector("#address");
+const results = document.querySelector("#results");
+const searchBtn = document.querySelector("#search-btn");
 
 // show address on the html page
 function showAddress(data) {
@@ -22,7 +22,7 @@ function showAddress(data) {
 // fetch request to openstreetmap api using address search to get lng-lat coordinates
 function findAddress(event) {
   event.preventDefault();
-  var url =
+  let url =
     "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" +
     address.value;
   fetch(url)
@@ -37,7 +37,7 @@ function findAddress(event) {
 
 // leaflet map widget controls
 function showMap(data) {
-  var mapDisplay = L.map("map").setView([data[0].lat, data[0].lon], 13);
+  let mapDisplay = L.map("map").setView([data[0].lat, data[0].lon], 13);
 
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
@@ -45,7 +45,7 @@ function showMap(data) {
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(mapDisplay);
 
-  var marker = L.marker([data[0].lat, data[0].lon])
+  let marker = L.marker([data[0].lat, data[0].lon])
     .addTo(mapDisplay)
     .bindPopup(`<b>My Map Marker</b><br>${data[0].display_name}`);
 }

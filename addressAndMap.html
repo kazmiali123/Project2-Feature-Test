@@ -1,3 +1,5 @@
+<!-- Search address field and button, to get address's coordinates and show a map, including a marker. 
+Works with script.js, that includes openstreetmap api and leaflets map api -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,29 +11,6 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
-    <script src="https://js.bytescale.com/sdk/v3"></script>
-
-    <script>
-      // import * as Bytescale from "@bytescale/sdk";
-
-      const uploadManager = new Bytescale.UploadManager({
-        apiKey: "public_kW15brd5HaXPzB3i1HpXV6akzVQ4", // This is your API key.
-      });
-
-      const onFileSelected = async (event) => {
-        const file = event.target.files[0];
-
-        try {
-          const { fileUrl, filePath } = await uploadManager.upload({
-            data: file,
-          });
-          console.log(fileUrl, filePath);
-          alert(`File uploaded:\n${fileUrl}`);
-        } catch (e) {
-          alert(`Error:\n${e.message}`);
-        }
-      };
-    </script>
     <link rel="stylesheet" href="./css/style.css" />
     <title>Document</title>
   </head>
@@ -44,14 +23,12 @@
     </div>
     <h2>Map</h2>
     <div id="map"></div>
-    <img src="https://upcdn.io/W142hJk/image/example.jpg?w=800&h=600" />
-    <input type="file" onchange="onFileSelected(event)" />
+
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-
-    <script src="./js/script.js"></script>
+    <script src="./js/addressAndMap.js"></script>
   </body>
 </html>
